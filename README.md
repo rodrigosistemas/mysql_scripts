@@ -94,4 +94,3 @@ service mysql stop
 service mysql restart
 service mysql status
 ```
-```
