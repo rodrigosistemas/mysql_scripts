@@ -115,16 +115,6 @@ cat /etc/services
 
 ## MySQL Commands
 
-### Connecting to MySQL as the Root User
-
-To connect to MySQL using the root user, run the following command:
-
-```bash
-sudo mysql -u root -p
-```
-
-> You will be prompted for the password if there is a password configuration.
-
 ### Creating Databases and Tables
 
 1. **Show all databases:**
