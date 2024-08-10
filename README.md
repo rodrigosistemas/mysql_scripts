@@ -94,3 +94,150 @@ service mysql stop
 service mysql restart
 service mysql status
 ```
+
+```markdown
+# MySQL Commands - Database and Table Operations
+
+## Checking All Ports (Linux)
+
+To review all ports in Linux, use the following command:
+
+```bash
+cat /etc/services
+```
+
+- **Default MySQL port:** `3306`
+
+## Primary and Foreign Keys
+
+- **Primary Keys:** Identify a table.
+- **Foreign Keys:** Create relationships between tables and help prevent duplicate entries.
+
+## MySQL Commands
+
+### Connecting to MySQL as the Root User
+
+To connect to MySQL using the root user, run the following command:
+
+```bash
+sudo mysql -u root -p
+```
+
+> You will be prompted for the password if there is a password configuration.
+
+### Creating Databases and Tables
+
+1. **Show all databases:**
+
+    ```sql
+    SHOW DATABASES;
+    ```
+
+2. **Create a new database:**
+
+    ```sql
+    CREATE DATABASE <database_name>;
+    ```
+
+3. **Use a specific database:**
+
+    ```sql
+    USE <database_name>;
+    ```
+
+4. **Show all tables in the database:**
+
+    ```sql
+    SHOW TABLES;
+    ```
+
+5. **Create a new table:**
+
+    ```sql
+    CREATE TABLE <table_name> (
+        id INT(10) NOT NULL AUTO_INCREMENT,
+        name VARCHAR(60) NOT NULL,
+        surname VARCHAR(60) NOT NULL,
+        address VARCHAR(60),
+        PRIMARY KEY (id)
+    );
+    ```
+
+6. **Describe table structure:**
+
+    ```sql
+    DESCRIBE <table_name>;
+    ```
+
+### CRUD Operations
+
+#### CREATE
+
+7. **Insert data into a table:**
+
+    ```sql
+    INSERT INTO <table_name> (name, surname, address)
+    VALUES ('Juan', 'De la Torre', 'Avenida SQL 123');
+    ```
+
+#### READ
+
+8. **Select data from a table:**
+
+    - Select all records:
+
+        ```sql
+        SELECT * FROM <table_name>;
+        ```
+
+    - Select specific columns:
+
+        ```sql
+        SELECT column1, column2 FROM <table_name>;
+        ```
+
+    - Select specific records with conditions:
+
+        ```sql
+        SELECT * FROM <table_name> WHERE id = 1;
+        ```
+
+    - Select the first few records (LIMIT):
+
+        ```sql
+        SELECT * FROM <table_name> LIMIT X;
+        ```
+
+#### UPDATE
+
+9. **Update existing records in a table:**
+
+    ```sql
+    UPDATE <table_name> SET name = 'Juan Pablo', address = 'Av. SQL 78901' WHERE id = 1;
+    ```
+
+    > Only the specified fields will be updated.
+
+#### DELETE
+
+10. **Delete records from a table:**
+
+    ```sql
+    DELETE FROM <table_name> WHERE id = 1;
+    ```
+
+    > This will delete the records where the condition is met, leaving empty spaces.
+
+### Additional Commands
+
+- **Drop a database:**
+
+    ```sql
+    DROP DATABASE <database_name>;
+    ```
+
+- **Drop a table:**
+
+    ```sql
+    DROP TABLE <table_name>;
+    ```
