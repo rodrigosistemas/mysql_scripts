@@ -70,3 +70,28 @@ To list users in MySQL, you can use the following commands:
 SELECT USER FROM mysql.user;
 SELECT USER, HOST FROM mysql.user;
 ```
+
+```markdown
+# Start and Stop MySQL Server
+
+## Linux - Start and Stop the Server
+
+To start, stop, or restart the MySQL server on Linux, you can use the following commands:
+
+```bash
+/etc/init.d/mysql start
+/etc/init.d/mysql stop
+/etc/init.d/mysql restart
+```
+
+## Linux - Service Commands
+
+Depending on your Linux distribution, you might need to use service commands. These commands might vary, commonly using `mysqld` or `mysql`:
+
+```bash
+service mysql start
+service mysql stop
+service mysql restart
+service mysql status
+```
+```
