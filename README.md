@@ -304,7 +304,6 @@ The `JOIN` clause allows combining two or more tables based on a common column t
     WHERE CONCAT(first_name, ' ', last_name) LIKE '%John Doe%';
     ```
 
-```markdown
 ## Error Handling Scripts
 
 These scripts help manage specific error cases in MySQL, such as resetting table indices and handling foreign key constraints.
@@ -317,7 +316,6 @@ If you need to reset the auto-increment value of a table's primary key column, f
    
    ```sql
    DELETE FROM table_name;
-   ```
 
 2. **Reset the auto-increment value to 1 for the primary key column (e.g., `id_usuario`):**
 
