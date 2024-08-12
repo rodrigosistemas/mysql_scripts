@@ -246,7 +246,7 @@ cat /etc/services
     ALTER TABLE <table_name> DROP COLUMN column_name;
     ```
 
-## ORDER BY
+### ORDER BY
 
 - **Sort results by a column in ascending order:**
 
@@ -260,7 +260,7 @@ cat /etc/services
     SELECT * FROM <table_name> ORDER BY <column> DESC;
     ```
 
-## COUNT and GROUP BY
+### COUNT and GROUP BY
 
 - **COUNT function:** Aggregates the number of times a record appears.
 
@@ -269,11 +269,11 @@ cat /etc/services
     GROUP BY <column> ORDER BY COUNT(id);
     ```
 
-## JOIN
+### JOIN
 
 The `JOIN` clause allows combining two or more tables based on a common column they share.
 
-## DISTINCT
+### DISTINCT
 
 - **Select distinct records, ignoring duplicates:**
 
@@ -281,7 +281,7 @@ The `JOIN` clause allows combining two or more tables based on a common column t
     SELECT DISTINCT <column> FROM <table_name>;
     ```
 
-## BETWEEN AND
+### BETWEEN AND
 
 - **Select records where a column's value is within a specific range:**
 
@@ -289,7 +289,7 @@ The `JOIN` clause allows combining two or more tables based on a common column t
     SELECT * FROM <table_name> WHERE <column> BETWEEN value1 AND value2;
     ```
 
-## LIKE
+### LIKE
 
 - **Use wildcards to match patterns within a column's data:**
 
