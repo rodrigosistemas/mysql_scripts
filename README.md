@@ -231,3 +231,75 @@ cat /etc/services
     ```sql
     DROP TABLE <table_name>;
     ```
+
+## Modify Database Attributes
+
+- **Add a column:**
+
+    ```sql
+    ALTER TABLE <table_name> ADD column_name VARCHAR(30);
+    ```
+
+- **Drop a column:**
+
+    ```sql
+    ALTER TABLE <table_name> DROP COLUMN column_name;
+    ```
+
+## ORDER BY
+
+- **Sort results by a column in ascending order:**
+
+    ```sql
+    SELECT * FROM <table_name> ORDER BY <column>;
+    ```
+
+- **Sort results by a column in descending order:**
+
+    ```sql
+    SELECT * FROM <table_name> ORDER BY <column> DESC;
+    ```
+
+## COUNT and GROUP BY
+
+- **COUNT function:** Aggregates the number of times a record appears.
+
+    ```sql
+    SELECT COUNT(id), <column> FROM <table_name>
+    GROUP BY <column> ORDER BY COUNT(id);
+    ```
+
+## JOIN
+
+The `JOIN` clause allows combining two or more tables based on a common column they share.
+
+## DISTINCT
+
+- **Select distinct records, ignoring duplicates:**
+
+    ```sql
+    SELECT DISTINCT <column> FROM <table_name>;
+    ```
+
+## BETWEEN AND
+
+- **Select records where a column's value is within a specific range:**
+
+    ```sql
+    SELECT * FROM <table_name> WHERE <column> BETWEEN value1 AND value2;
+    ```
+
+## LIKE
+
+- **Use wildcards to match patterns within a column's data:**
+
+    ```sql
+    SELECT * FROM <table_name> WHERE <column> LIKE '%word%';
+    ```
+
+- **LIKE with two columns using CONCAT:**
+
+    ```sql
+    SELECT * FROM <table_name>
+    WHERE CONCAT(first_name, ' ', last_name) LIKE '%John Doe%';
+    ```
