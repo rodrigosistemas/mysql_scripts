@@ -303,3 +303,35 @@ The `JOIN` clause allows combining two or more tables based on a common column t
     SELECT * FROM <table_name>
     WHERE CONCAT(first_name, ' ', last_name) LIKE '%John Doe%';
     ```
+
+```markdown
+## Error Handling Scripts
+
+These scripts help manage specific error cases in MySQL, such as resetting table indices and handling foreign key constraints.
+
+### Resetting Table Indexes in MySQL
+
+If you need to reset the auto-increment value of a table's primary key column, follow these steps:
+
+1. **Delete all existing records from the table:**
+   
+   ```sql
+   DELETE FROM table_name;
+   ```
+
+2. **Reset the auto-increment value to 1 for the primary key column (e.g., `id_usuario`):**
+
+   ```sql
+   ALTER TABLE table_name AUTO_INCREMENT = 1;
+   ```
+
+### Dropping a Foreign Key Constraint
+
+If you need to remove a foreign key constraint from a table, use the following command:
+
+```sql
+ALTER TABLE table_name DROP FOREIGN KEY table_name_ibfk_1;
+```
+
+Make sure to replace `table_name` with the actual name of your table, and `table_name_ibfk_1` with the specific name of the foreign key constraint you want to remove.
+```
