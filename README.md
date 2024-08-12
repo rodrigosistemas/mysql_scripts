@@ -332,4 +332,3 @@ ALTER TABLE table_name DROP FOREIGN KEY table_name_ibfk_1;
 ```
 
 Make sure to replace `table_name` with the actual name of your table, and `table_name_ibfk_1` with the specific name of the foreign key constraint you want to remove.
-```
