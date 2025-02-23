@@ -303,6 +303,115 @@ The `JOIN` clause allows combining two or more tables based on a common column t
     SELECT * FROM <table_name>
     WHERE CONCAT(first_name, ' ', last_name) LIKE '%John Doe%';
     ```
+---
+
+## **MySQL Aggregate Functions**
+
+### **1. COUNT()**
+
+The `COUNT()` function is used to count the number of rows that match a specified condition.
+
+```sql
+SELECT COUNT(id) FROM <table_name>;
+```
+
+You can also count distinct values:
+
+```sql
+SELECT COUNT(DISTINCT column_name) FROM <table_name>;
+```
+
+### **2. SUM()**
+
+The `SUM()` function is used to return the sum of a numeric column.
+
+```sql
+SELECT SUM(column_name) FROM <table_name>;
+```
+
+### **3. AVG()**
+
+The `AVG()` function is used to return the average value of a numeric column.
+
+```sql
+SELECT AVG(column_name) FROM <table_name>;
+```
+
+### **4. MAX()**
+
+The `MAX()` function is used to return the highest value in a column.
+
+```sql
+SELECT MAX(column_name) FROM <table_name>;
+```
+
+### **5. MIN()**
+
+The `MIN()` function is used to return the lowest value in a column.
+
+```sql
+SELECT MIN(column_name) FROM <table_name>;
+```
+
+### **6. GROUP_CONCAT()**
+
+The `GROUP_CONCAT()` function is used to concatenate values from multiple rows into a single string.
+
+```sql
+SELECT GROUP_CONCAT(column_name) FROM <table_name>;
+```
+
+---
+
+## **MySQL Subqueries**
+
+### **1. Basic Subquery in SELECT**
+
+A **subquery** is a query nested inside another query. In MySQL, subqueries can be used in `SELECT`, `INSERT`, `UPDATE`, and `DELETE` statements.
+
+Example of a basic subquery in a `SELECT` statement:
+
+```sql
+SELECT name FROM <table_name>
+WHERE id IN (SELECT id FROM <table_name> WHERE condition);
+```
+
+### **2. Subquery in WHERE Clause**
+
+Subqueries are often used in the `WHERE` clause to filter records based on the result of another query.
+
+```sql
+SELECT name, surname FROM <table_name>
+WHERE id = (SELECT id FROM <table_name> WHERE condition);
+```
+
+### **3. Subquery in FROM Clause**
+
+Subqueries can also be used in the `FROM` clause to create temporary result sets that can be joined with other tables.
+
+```sql
+SELECT a.name, b.surname
+FROM (SELECT * FROM <table_name> WHERE condition) AS a
+JOIN <another_table> AS b ON a.id = b.id;
+```
+
+### **4. Subquery in SELECT Statement**
+
+Subqueries can also be used directly in the `SELECT` statement to return values calculated based on another query.
+
+```sql
+SELECT name, (SELECT COUNT(*) FROM <another_table> WHERE <condition>) AS count
+FROM <table_name>;
+```
+
+### **5. Correlated Subqueries**
+
+A correlated subquery is a subquery that references a column from the outer query. It is evaluated once for each row in the outer query.
+
+```sql
+SELECT name FROM <table_name> a
+WHERE EXISTS (SELECT 1 FROM <another_table> b WHERE a.id = b.id AND b.condition);
+```
 
 ## Error Handling Scripts
 
