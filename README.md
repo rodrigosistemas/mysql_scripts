@@ -1,4 +1,3 @@
-```markdown
 # SQL Commands - MySQL
 
 ## MySQL Installation
@@ -29,10 +28,10 @@ mysql -u root -p
 
 ## Secure MySQL Installation
 
-The secure installation of MySQL (`mysql-secure-installation`) allows you to:
+The secure installation of MySQL (`mysql_secure_installation`) allows you to:
 
-- Restrict access only from `localhost` for the `root` user.
-- Remove anonymous access.
+- Restrict root user access to `localhost`.
+- Remove anonymous users.
 - Remove the `test` database.
 - Change the default password.
 
@@ -59,10 +58,9 @@ SELECT USER FROM mysql.user;
 SELECT USER, HOST FROM mysql.user;
 ```
 
-```markdown
-# Start and Stop MySQL Server
+## Start and Stop MySQL Server
 
-## Linux - Start and Stop the Server
+### Linux - Start and Stop the Server
 
 To start, stop, or restart the MySQL server on Linux, you can use the following commands:
 
@@ -72,9 +70,9 @@ To start, stop, or restart the MySQL server on Linux, you can use the following 
 /etc/init.d/mysql restart
 ```
 
-## Linux - Service Commands
+### Linux - Service Commands
 
-Depending on your Linux distribution, you might need to use service commands. These commands might vary, commonly using `mysqld` or `mysql`:
+Depending on your Linux distribution, you might need to use service commands. These commands may vary, commonly using `mysqld` or `mysql`:
 
 ```bash
 service mysql start
@@ -83,10 +81,9 @@ service mysql restart
 service mysql status
 ```
 
-```markdown
-# MySQL Commands - Database and Table Operations
+## MySQL Commands - Database and Table Operations
 
-## Checking All Ports (Linux)
+### Checking All Ports (Linux)
 
 To review all ports in Linux, use the following command:
 
@@ -96,14 +93,14 @@ cat /etc/services
 
 - **Default MySQL port:** `3306`
 
-## Primary and Foreign Keys
+### Primary and Foreign Keys
 
 - **Primary Keys:** Identify a table.
-- **Foreign Keys:** Create relationships between tables and help prevent duplicate entries.
+- **Foreign Keys:** Create relationships between tables and help maintain data integrity.
 
-## MySQL Commands
+### MySQL Commands
 
-### Creating Databases and Tables
+#### Creating Databases and Tables
 
 1. **Show all databases:**
 
@@ -147,9 +144,9 @@ cat /etc/services
     DESCRIBE <table_name>;
     ```
 
-### CRUD Operations
+#### CRUD Operations
 
-#### CREATE
+##### CREATE
 
 7. **Insert data into a table:**
 
@@ -158,35 +155,35 @@ cat /etc/services
     VALUES ('Juan', 'De la Torre', 'Avenida SQL 123');
     ```
 
-#### READ
+##### READ
 
 8. **Select data from a table:**
 
-    - Select all records:
+- Select all records:
 
-        ```sql
-        SELECT * FROM <table_name>;
-        ```
+    ```sql
+    SELECT * FROM <table_name>;
+    ```
 
-    - Select specific columns:
+- Select specific columns:
 
-        ```sql
-        SELECT column1, column2 FROM <table_name>;
-        ```
+    ```sql
+    SELECT column1, column2 FROM <table_name>;
+    ```
 
-    - Select specific records with conditions:
+- Select specific records with conditions:
 
-        ```sql
-        SELECT * FROM <table_name> WHERE id = 1;
-        ```
+    ```sql
+    SELECT * FROM <table_name> WHERE id = 1;
+    ```
 
-    - Select the first few records (LIMIT):
+- Select the first few records (LIMIT):
 
-        ```sql
-        SELECT * FROM <table_name> LIMIT X;
-        ```
+    ```sql
+    SELECT * FROM <table_name> LIMIT X;
+    ```
 
-#### UPDATE
+##### UPDATE
 
 9. **Update existing records in a table:**
 
@@ -194,9 +191,9 @@ cat /etc/services
     UPDATE <table_name> SET name = 'Juan Pablo', address = 'Av. SQL 78901' WHERE id = 1;
     ```
 
-    > Only the specified fields will be updated.
+> Only the specified fields will be updated.
 
-#### DELETE
+##### DELETE
 
 10. **Delete records from a table:**
 
@@ -204,7 +201,7 @@ cat /etc/services
     DELETE FROM <table_name> WHERE id = 1;
     ```
 
-    > This will delete the records where the condition is met, leaving empty spaces.
+> This will delete the records where the condition is met, leaving empty spaces.
 
 ### Additional Commands
 
@@ -250,7 +247,7 @@ cat /etc/services
 
 ### COUNT and GROUP BY
 
-- **COUNT function:** Aggregates the number of times a record appears.
+- **COUNT function:** Count the number of rows that match a condition.
 
     ```sql
     SELECT COUNT(id), <column> FROM <table_name>
@@ -291,11 +288,10 @@ The `JOIN` clause allows combining two or more tables based on a common column t
     SELECT * FROM <table_name>
     WHERE CONCAT(first_name, ' ', last_name) LIKE '%John Doe%';
     ```
----
 
-## **MySQL Aggregate Functions**
+## MySQL Aggregate Functions
 
-### **1. COUNT()**
+### COUNT()
 
 The `COUNT()` function is used to count the number of rows that match a specified condition.
 
@@ -309,73 +305,65 @@ You can also count distinct values:
 SELECT COUNT(DISTINCT column_name) FROM <table_name>;
 ```
 
-### **2. SUM()**
+### SUM()
 
-The `SUM()` function is used to return the sum of a numeric column.
+The `SUM()` function returns the sum of a numeric column.
 
 ```sql
 SELECT SUM(column_name) FROM <table_name>;
 ```
 
-### **3. AVG()**
+### AVG()
 
-The `AVG()` function is used to return the average value of a numeric column.
+The `AVG()` function returns the average value of a numeric column.
 
 ```sql
 SELECT AVG(column_name) FROM <table_name>;
 ```
 
-### **4. MAX()**
+### MAX()
 
-The `MAX()` function is used to return the highest value in a column.
+The `MAX()` function returns the highest value in a column.
 
 ```sql
 SELECT MAX(column_name) FROM <table_name>;
 ```
 
-### **5. MIN()**
+### MIN()
 
-The `MIN()` function is used to return the lowest value in a column.
+The `MIN()` function returns the lowest value in a column.
 
 ```sql
 SELECT MIN(column_name) FROM <table_name>;
 ```
 
-### **6. GROUP_CONCAT()**
+### GROUP_CONCAT()
 
-The `GROUP_CONCAT()` function is used to concatenate values from multiple rows into a single string.
+The `GROUP_CONCAT()` function concatenates values from multiple rows into a single string.
 
 ```sql
 SELECT GROUP_CONCAT(column_name) FROM <table_name>;
 ```
 
----
+## MySQL Subqueries
 
-## **MySQL Subqueries**
-
-### **1. Basic Subquery in SELECT**
+### Basic Subquery in SELECT
 
 A **subquery** is a query nested inside another query. In MySQL, subqueries can be used in `SELECT`, `INSERT`, `UPDATE`, and `DELETE` statements.
-
-Example of a basic subquery in a `SELECT` statement:
 
 ```sql
 SELECT name FROM <table_name>
 WHERE id IN (SELECT id FROM <table_name> WHERE condition);
 ```
 
-### **2. Subquery in WHERE Clause**
-
-Subqueries are often used in the `WHERE` clause to filter records based on the result of another query.
+### Subquery in WHERE Clause
 
 ```sql
 SELECT name, surname FROM <table_name>
-WHERE id = (SELECT id FROM <table_name> WHERE condition);
+WHERE id = (SELECT id FROM <another_table> WHERE condition);
 ```
 
-### **3. Subquery in FROM Clause**
-
-Subqueries can also be used in the `FROM` clause to create temporary result sets that can be joined with other tables.
+### Subquery in FROM Clause
 
 ```sql
 SELECT a.name, b.surname
@@ -383,18 +371,14 @@ FROM (SELECT * FROM <table_name> WHERE condition) AS a
 JOIN <another_table> AS b ON a.id = b.id;
 ```
 
-### **4. Subquery in SELECT Statement**
-
-Subqueries can also be used directly in the `SELECT` statement to return values calculated based on another query.
+### Subquery in SELECT Statement
 
 ```sql
 SELECT name, (SELECT COUNT(*) FROM <another_table> WHERE <condition>) AS count
 FROM <table_name>;
 ```
 
-### **5. Correlated Subqueries**
-
-A correlated subquery is a subquery that references a column from the outer query. It is evaluated once for each row in the outer query.
+### Correlated Subqueries
 
 ```sql
 SELECT name FROM <table_name> a
@@ -410,15 +394,16 @@ These scripts help manage specific error cases in MySQL, such as resetting table
 If you need to reset the auto-increment value of a table's primary key column, follow these steps:
 
 1. **Delete all existing records from the table:**
-   
-   ```sql
-   DELETE FROM table_name;
+
+    ```sql
+    DELETE FROM table_name;
+    ```
 
 2. **Reset the auto-increment value to 1 for the primary key column (e.g., `id_usuario`):**
 
-   ```sql
-   ALTER TABLE table_name AUTO_INCREMENT = 1;
-   ```
+    ```sql
+    ALTER TABLE table_name AUTO_INCREMENT = 1;
+    ```
 
 ### Dropping a Foreign Key Constraint
 
@@ -429,3 +414,96 @@ ALTER TABLE table_name DROP FOREIGN KEY table_name_ibfk_1;
 ```
 
 Make sure to replace `table_name` with the actual name of your table, and `table_name_ibfk_1` with the specific name of the foreign key constraint you want to remove.
+
+---
+
+## Modify Root User Password
+
+If you need to change the **root** password (for example, after running `mysql_secure_installation` or at any other time), use one of these methods:
+
+1. **Using `ALTER USER`** (MySQL 5.7.6+)
+
+    ```sql
+    -- Connect as root
+    mysql -u root -p
+
+    -- Within the MySQL prompt:
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPass#123';
+    FLUSH PRIVILEGES;
+    ```
+
+2. **Using `SET PASSWORD`** (older versions)
+
+    ```sql
+    mysql -u root -p
+
+    -- Within the MySQL prompt:
+    SET PASSWORD FOR 'root'@'localhost' = PASSWORD('NewPass#123');
+    FLUSH PRIVILEGES;
+    ```
+
+3. **If you forgot the root password**, start MySQL in safe mode to reset it:
+
+    ```bash
+    sudo systemctl stop mysql
+    sudo mysqld_safe --skip-grant-tables &
+    mysql
+
+    -- Within the MySQL prompt (no password):
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPass#123';
+    FLUSH PRIVILEGES;
+
+    -- Then stop the safe-mode server and restart normally:
+    sudo pkill mysqld
+    sudo systemctl start mysql
+    ```
+
+---
+
+## User Management
+
+### Create a New User
+
+```sql
+-- Basic syntax
+CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'UserPass#123';
+```
+
+### Grant Privileges
+
+```sql
+-- For example, grant all privileges on a database:
+GRANT ALL PRIVILEGES ON my_database.* TO 'new_user'@'localhost';
+
+-- Specific privileges:
+GRANT SELECT, INSERT, UPDATE ON my_database.* TO 'new_user'@'localhost';
+
+FLUSH PRIVILEGES;
+```
+
+### Show a User's Privileges
+
+```sql
+SHOW GRANTS FOR 'new_user'@'localhost';
+```
+
+### Revoke Privileges
+
+```sql
+REVOKE INSERT, UPDATE ON my_database.* FROM 'new_user'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+### Change Any User's Password
+
+```sql
+ALTER USER 'new_user'@'localhost' IDENTIFIED BY 'OtherPass#456';
+FLUSH PRIVILEGES;
+```
+
+### Drop a User
+
+```sql
+DROP USER 'new_user'@'localhost';
+FLUSH PRIVILEGES;
+
