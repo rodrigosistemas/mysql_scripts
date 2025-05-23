@@ -42,18 +42,6 @@ To run the secure installation, use:
 sudo mysql_secure_installation
 ```
 
-First, change the password for the `root` user.
-
-### Modify User Password
-
-To change the password for the `root` user and ensure it can only be accessed from `localhost`, execute:
-
-```sql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
-```
-
-> **Note:** Be sure to replace `123456` with a secure password.
-
 ## MySQL Configuration
 
 To start configuring MySQL, run:
